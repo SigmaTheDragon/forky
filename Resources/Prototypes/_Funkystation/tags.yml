@@ -12,3 +12,12 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
+  
+- type: Tag # Funky weapon - ammo
+  id: CartridgePistolLarge
+
+- type: Tag # Funky weapon - magazine
+  id: MagazinePistolLarge
+  
+- type: Tag # Funky weapon - Salamander Revolver
+  id: RevolverSalamander

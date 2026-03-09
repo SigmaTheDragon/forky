@@ -52,12 +52,14 @@
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
   - MagazineLightRifleIncendiary
+  - MagazinePistolLargeIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  - MagazineBoxPistolLargeIncendiary
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -100,11 +102,13 @@
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
+  - MagazinePistolLargeUranium
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
+  - MagazineBoxPistolLargeUranium
   - BoxShotgunUranium
 
 - type: technology

@@ -26,11 +26,13 @@
   - MagazineBoxMagnumPractice
   - MagazineBoxPistolPractice
   - MagazineBoxRiflePractice
+  - MagazineBoxPistolLargePractice # Funky
   - WeaponDisablerPractice
   - WeaponLaserCarbinePractice
   - MagazineLightRiflePractice
   - MagazineRiflePractice
   - MagazinePistolPractice
+  - MagazinePistolLargePractice # Funky
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
@@ -45,6 +47,7 @@
   - MagazineBoxMagnum
   - MagazineBoxPistol
   - MagazineBoxRifle
+  - MagazineBoxPistolLarge # Funky
   - MagazineLightRifle
   - MagazineLightRifleEmpty
   - MagazinePistol
@@ -53,6 +56,8 @@
   - MagazinePistolSubMachineGunEmpty
   - MagazinePistolSubMachineGunTopMounted
   - MagazinePistolSubMachineGunTopMountedEmpty
+  - MagazinePistolLarge # Funky
+  - MagazinePistolLargeEmpty # Funky
   - MagazineRifle
   - MagazineRifleEmpty
   - SpeedLoaderMagnum
@@ -117,6 +122,8 @@
   - MagazineBoxPistolUranium
   - MagazineBoxRifleIncendiary
   - MagazineBoxRifleUranium
+  - MagazineBoxPistolLargeIncendiary # Funky
+  - MagazineBoxPistolLargeUranium # Funky
   - MagazineLightRifleIncendiary
   - MagazineLightRifleUranium
   - MagazinePistolIncendiary
@@ -125,6 +132,8 @@
   - MagazinePistolSubMachineGunUranium
   - MagazineRifleIncendiary
   - MagazineRifleUranium
+  - MagazinePistolLargeIncendiary # Funky
+  - MagazinePistolLargeUranium # Funky
   - MagazineShotgunBeanbag
   - MagazineShotgunIncendiary
   - SpeedLoaderMagnumIncendiary

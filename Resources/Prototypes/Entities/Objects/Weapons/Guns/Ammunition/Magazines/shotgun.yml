@@ -19,7 +19,7 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineShotgun
-  name: ammo drum (.50 shells)
+  name: ammo drum (12 gauge shells)
   components:
   - type: Tag
     tags:
@@ -61,7 +61,7 @@
 
 - type: entity
   id: MagazineShotgunEmpty
-  name: ammo drum (.50 shells any)
+  name: ammo drum (12 gauge shells any)
   suffix: empty
   description: A large drum magazine used by some military-grade automatic shotguns.
   parent: BaseMagazineShotgun
@@ -72,7 +72,7 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgun
-  name: ammo drum (.50 pellet)
+  name: ammo drum (12 gauge pellet)
   description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -97,7 +97,7 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgunBeanbag
-  name: ammo drum (.50 beanbag)
+  name: ammo drum (12 gauge beanbag)
   description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold less-than-lethal beanbag ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -122,7 +122,7 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgunSlug
-  name: ammo drum (.50 slug)
+  name: ammo drum (12 gauge slug)
   description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold long-ranged slug ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -147,7 +147,7 @@
 - type: entity
   parent: BaseMagazineShotgun
   id: MagazineShotgunIncendiary
-  name: ammo drum (.50 incendiary)
+  name: ammo drum (12 gauge incendiary)
   description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
