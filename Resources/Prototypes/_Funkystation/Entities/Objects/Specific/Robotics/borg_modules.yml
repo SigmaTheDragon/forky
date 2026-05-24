@@ -1,0 +1,84 @@
+- type: entity
+  id: BorgModulePaperwork
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: paperwork cyborg module
+  description: A module that comes with all that is needed to handle, file, write and stamp paperwork.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-paperwork
+  - type: ItemBorgModule
+    hands:
+    - item: Pen
+    - item: BoxFolderClipboardThreePapers
+    - item: Paper
+      hand:
+        emptyLabel: borg-slot-paperwork-empty
+        emptyRepresentative: Paper
+        whitelist:
+          tags:
+          - Document
+          - Paper
+    - item: RubberStampApproved
+    - item: RubberStampDenied
+    - item: HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: paperwork-module }
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateHacking
+  name: hacker cyborg module
+  description: A module that comes with an emag, for all your hacking needs.
+  components:
+    - type: Sprite
+      layers:
+      - state: syndicate
+      - state: icon-syndicate
+    - type: ItemBorgModule
+      hands:
+      - item: Emag
+    - type: BorgModuleIcon
+      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+      
+- type: entity
+  id: BorgModuleAnomalyAdvanced
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: advanced anomaly cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-anomalies-advanced
+  - type: ItemBorgModule
+    hands:
+    - item: AnomalyScanner
+    - item: AnomalyLocatorUnpowered
+    - item: AnomalyLocatorWideUnpowered
+    - item: WeaponPistolCHIMPCyborg
+    - hand:
+        emptyRepresentative: SheetRGlass
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - hand:
+        emptyRepresentative: SheetRPGlass
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - item: Wrench
+    - item: Pen
+    - item: Paper
+      hand:
+        emptyLabel: borg-slot-paperwork-empty
+        emptyRepresentative: Paper
+        whitelist:
+          tags:
+          - Document
+          - Paper
+    - item: HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }

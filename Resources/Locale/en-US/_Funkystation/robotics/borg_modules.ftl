@@ -1,0 +1,1 @@
+borg-slot-paperwork-empty = Paperwork

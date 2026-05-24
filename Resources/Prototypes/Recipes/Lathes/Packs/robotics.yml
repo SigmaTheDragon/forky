@@ -14,6 +14,7 @@
   - BorgModuleFireExtinguisher
   - BorgModuleInflatable
   - BorgModuleArtistry
+  - BorgModulePaperwork
 
 - type: latheRecipePack
   id: BorgLimbsStatic
