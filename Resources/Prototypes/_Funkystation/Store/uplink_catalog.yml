@@ -49,3 +49,16 @@
       blacklist:
         components:
           - SurplusBundle
+
+# For the Estoc
+- type: listing
+  id: UplinkRifle50MagazineIncendiary
+  name: uplink-rifle-magazine-50-incendiary-name
+  description: uplink-rifle-magazine-50-incendiary-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: red-icon }
+  productEntity: MagazineRifle50Incendiary
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true

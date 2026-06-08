@@ -18,6 +18,9 @@
 
 - type: Tag # Funky weapon - magazine
   id: MagazinePistolLarge
-  
+
+- type: Tag # Funky weapon - magazine
+  id: MagazineRifle50
+
 - type: Tag # Funky weapon - Salamander Revolver
   id: RevolverSalamander

@@ -33,6 +33,7 @@
   - MagazineRiflePractice
   - MagazinePistolPractice
   - MagazinePistolLargePractice # Funky
+  - MagazineRifle50Practice # Funky
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
@@ -60,6 +61,8 @@
   - MagazinePistolLargeEmpty # Funky
   - MagazineRifle
   - MagazineRifleEmpty
+  - MagazineRifle50 # Funky
+  - MagazineRifle50Empty # Funky
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
 
@@ -136,6 +139,8 @@
   - MagazinePistolLargeUranium # Funky
   - MagazineShotgunBeanbag
   - MagazineShotgunIncendiary
+  - MagazineRifle50Incendiary # Funky
+  - MagazineRifle50Uranium # Funky
   - SpeedLoaderMagnumIncendiary
   - SpeedLoaderMagnumUranium
 
