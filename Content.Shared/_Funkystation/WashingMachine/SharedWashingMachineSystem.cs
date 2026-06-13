@@ -35,15 +35,29 @@ public abstract class SharedWashingMachineSystem : EntitySystem
 
     private void OnActivate(Entity<WashingMachineComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (args.Handled || !TryStartWash(ent, args.User))
+        if (args.Handled || ent.Comp.State != WashingMachineState.Idle || !_power.IsPowered(ent.Owner) || Storage.IsOpen(ent.Owner))
             return;
 
+        if (!TryComp<EntityStorageComponent>(ent, out var storage) || storage.Contents.ContainedEntities.Count == 0)
+            return;
+
+        if (Timing.CurTime < ent.Comp.NextWashAllowed)
+        {
+            _popup.PopupClient(Loc.GetString("washing-machine-cooldown"), ent.Owner, args.User);
+            args.Handled = true;
+            return;
+        }
+
         args.Handled = true;
+        TryStartWash(ent, args.User);
     }
 
     private void OnGetVerbs(Entity<WashingMachineComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanInteract || ent.Comp.State != WashingMachineState.Idle)
+        if (!args.CanInteract || ent.Comp.State != WashingMachineState.Idle || !_power.IsPowered(ent.Owner) || Storage.IsOpen(ent.Owner))
+            return;
+
+        if (!TryComp<EntityStorageComponent>(ent, out var storage) || storage.Contents.ContainedEntities.Count == 0)
             return;
 
         var user = args.User;
@@ -51,7 +65,15 @@ public abstract class SharedWashingMachineSystem : EntitySystem
         {
             Text = Loc.GetString("washing-machine-start"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
-            Act = () => TryStartWash(ent, user)
+            Act = () =>
+            {
+                if (Timing.CurTime < ent.Comp.NextWashAllowed)
+                {
+                    _popup.PopupClient(Loc.GetString("washing-machine-cooldown"), ent.Owner, user);
+                    return;
+                }
+                TryStartWash(ent, user);
+            }
         });
     }
 
@@ -61,10 +83,7 @@ public abstract class SharedWashingMachineSystem : EntitySystem
             return false;
 
         if (Timing.CurTime < ent.Comp.NextWashAllowed)
-        {
-            _popup.PopupClient(Loc.GetString("washing-machine-cooldown"), ent.Owner, user);
             return false;
-        }
 
         if (TryComp<EntityStorageComponent>(ent, out var storage) && storage.Contents.ContainedEntities.Count == 0)
             return false;
