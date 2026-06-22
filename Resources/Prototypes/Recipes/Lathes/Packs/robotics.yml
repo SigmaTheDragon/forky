@@ -15,6 +15,9 @@
   - BorgModuleInflatable
   - BorgModuleArtistry
   - BorgModulePaperwork
+  - BorgModuleMedicalBasic
+  - BorgModuleChemicalBasic
+  - BorgModuleFoam
 
 - type: latheRecipePack
   id: BorgLimbsStatic
