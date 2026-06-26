@@ -44,7 +44,7 @@
   - type: BadFood
   - type: Solution
     solution:
-      maxVolume: 1000
+      maxVol: 1000
       reagents:
         - ReagentId: Uranium
           Quantity: 800
