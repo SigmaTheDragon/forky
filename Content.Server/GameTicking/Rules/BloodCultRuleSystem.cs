@@ -190,11 +190,9 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 	[Dependency] private ActionContainerSystem _actionContainer = default!;
 	[Dependency] private SharedPointLightSystem _pointLight = default!;
 	[Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly TargetSystem _target = default!;
+    [Dependency] private TargetSystem _target = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
-
-	private static readonly EntProtoId MindRole = "MindRoleCultist";
 
 	public static readonly ProtoId<NpcFactionPrototype> BloodCultistFactionId = "BloodCultist";
     public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
@@ -215,6 +213,7 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 		SubscribeLocalEvent<BloodCultistComponent, SacrificeRuneEvent>(TrySacrificeVictim);
 		SubscribeLocalEvent<BloodCultistComponent, ConvertRuneEvent>(TryConvertVictim);
 
+        SubscribeLocalEvent<BloodCultistComponent, ComponentAdd>(OnCultistAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindAddedMessage>(OnMindAdded);
 		SubscribeLocalEvent<BloodCultistComponent, MindRemovedMessage>(OnMindRemoved);
 		SubscribeLocalEvent<BloodCultistComponent, ComponentRemove>(OnCultistRemoved);
@@ -229,7 +228,12 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 		InitializeCommands();
 	}
 
-	private void InitializeCommands()
+    private void OnCultistAdded(Entity<BloodCultistComponent> ent, ref ComponentAdd args)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void InitializeCommands()
 	{
 		_consoleHost.RegisterCommand("cult_queryblood",
 			"Query the current blood collected and remaining for the Blood Cult game rule",
@@ -358,25 +362,24 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 			if (_mind.TryGetMind(traitor, out var mindId, out _))
 			{
 				// Check if actions already exist in the mind's action container
-				if (TryComp<ActionsContainerComponent>(mindId, out var mindContainer))
+				if (TryComp<ActionsContainerComponent>(traitor, out var mindContainer))
 				{
 					if (!HasActionWithPrototype(mindContainer, ActionCommune))
-						_actionContainer.AddAction(mindId, ActionCommune);
+						_actionContainer.AddAction(traitor, ActionCommune);
 					if (!HasActionWithPrototype(mindContainer, ActionStudyVeil))
-						_actionContainer.AddAction(mindId, ActionStudyVeil);
+						_actionContainer.AddAction(traitor, ActionStudyVeil);
 					if (!HasActionWithPrototype(mindContainer, ActionSpellsSelect))
-						_actionContainer.AddAction(mindId, ActionSpellsSelect);
+						_actionContainer.AddAction(traitor, ActionSpellsSelect);
 					if (!HasActionWithPrototype(mindContainer, ActionSummonDagger))
-						_actionContainer.AddAction(mindId, ActionSummonDagger);
+						_actionContainer.AddAction(traitor, ActionSummonDagger);
 				}
 				else
 				{
 					// No container yet, ensure it exists and add actions
-					EnsureComp<ActionsContainerComponent>(mindId);
-					_actionContainer.AddAction(mindId, ActionCommune);
-					_actionContainer.AddAction(mindId, ActionStudyVeil);
-					_actionContainer.AddAction(mindId, ActionSpellsSelect);
-					_actionContainer.AddAction(mindId, ActionSummonDagger);
+					_actionContainer.AddAction(traitor, ActionCommune);
+					_actionContainer.AddAction(traitor, ActionStudyVeil);
+					_actionContainer.AddAction(traitor, ActionSpellsSelect);
+					_actionContainer.AddAction(traitor, ActionSummonDagger);
 				}
 			}
 
@@ -431,12 +434,6 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 	{
 		if (!_mind.TryGetMind(traitor, out var mindId, out var mind))
             return false;
-
-		_role.MindAddRole(mindId, MindRole, mind, true);
-
-		EnsureComp<BloodCultistComponent>(traitor);
-
-        _antag.SendBriefing(traitor, Loc.GetString("cult-role-greeting"), Color.Red, null);
 
         if (TryComp<MindComponent>(mindId, out var mindComp) && _role.MindHasRole<BloodCultRoleComponent>((mindId, mindComp), out var cultRoleComp))
 			AddComp(cultRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("cult-briefing") }, overwrite: true);

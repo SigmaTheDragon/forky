@@ -28,14 +28,6 @@
     - WhitelistChameleon
   - type: StaticPrice
     price: 50
-  - type: SolutionManager
-    solutions:
-    - SolutionStain
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 30
 
 - type: entity
   parent: ClothingOuterWinterCoat

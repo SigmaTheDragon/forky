@@ -60,8 +60,8 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		if (_mind.TryGetMind(juggernaut, out var mindId, out _))
 		{
 			// Ensure actions container exists before adding action
-			EnsureComp<ActionsContainerComponent>(mindId);
-			_actionContainer.AddAction(mindId, "ActionCultistCommune");
+			var comp = EnsureComp<ActionsContainerComponent>(mindId);
+			_actionContainer.AddAction(mindId, "ActionCultistCommune", comp);
 		}
 		else
 		{
