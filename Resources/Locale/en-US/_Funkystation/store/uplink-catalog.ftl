@@ -13,4 +13,4 @@ uplink-pistol-magazine-large-incendiary-name = pistol magazine (.50 AE Incendiar
 uplink-pistol-magazine-large-incendiary-desc = .50 AE magazine compatible with the wyvern. For when you want to spice it up.
 
 uplink-rifle-magazine-50-incendiary-name = rifle magazine (.50 AE Incendiary)
-uplink-rifle-magazine-50-incendiary-desc = .50 AE magazine compatible with the extoc. Burn them all down.
+uplink-rifle-magazine-50-incendiary-desc = .50 AE magazine compatible with the estoc. Burn them all down.

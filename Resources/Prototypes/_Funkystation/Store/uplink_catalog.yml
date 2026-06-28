@@ -10,16 +10,6 @@
   - UplinkWeaponry
   saleLimit: 1
 
-- type: listing
-  id: UplinkRevolverSalamander
-  name: uplink-revolver-salamander-name
-  description: uplink-revolver-salamander-desc
-  productEntity: WeaponRevolverSalamander
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWeaponry
-
 # For the wyvern
 - type: listing
   id: UplinkPistolLargeMagazineUranium
@@ -50,6 +40,18 @@
         components:
           - SurplusBundle
 
+# Estoc, except this time it actually is useful (i hope)
+- type: listing
+  id: UplinkWeaponEstoc
+  name: uplink-estoc-bundle-name
+  description: uplink-estoc-bundle-desc
+  productEntity: BriefcaseWeaponEstocFilled
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWeaponry
+  saleLimit: 2
+  
 # For the Estoc
 - type: listing
   id: UplinkRifle50MagazineIncendiary
@@ -58,7 +60,18 @@
   icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: red-icon }
   productEntity: MagazineRifle50Incendiary
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkAmmo
   saleBlacklist: true
+
+# Smol and evil. Can hide in small places.
+- type: listing
+  id: UplinkRevolverSalamander
+  name: uplink-revolver-salamander-name
+  description: uplink-revolver-salamander-desc
+  productEntity: WeaponRevolverSalamander
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWeaponry
